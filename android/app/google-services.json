@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "115214910902",
+    "firebase_url": "https://efirecommerce.firebaseio.com",
+    "project_id": "efirecommerce",
+    "storage_bucket": "efirecommerce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115214910902:android:41eda350e2afa8f50dad17",
+        "android_client_info": {
+          "package_name": "com.fire.commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115214910902-1ehlp4r59aqqall6cd0smibc4kdq390n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4FEOVQ9MIcbSG_OaockomG2Z_uIQng7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115214910902-1ehlp4r59aqqall6cd0smibc4kdq390n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
