@@ -10,12 +10,15 @@ import 'package:provider/provider.dart';
 class ProductList extends StatelessWidget {
   final QueryDocumentSnapshot document;
   final ProductService productService;
+  final bool isCartView;
 
-  const ProductList({Key key, this.document, this.productService})
+  const ProductList(
+      {Key key, this.document, this.productService, this.isCartView})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    bool _isCartView = isCartView ?? false;
     final user = Provider.of<User>(context);
 
     return StreamBuilder(
@@ -33,8 +36,7 @@ class ProductList extends StatelessWidget {
           Map _productMap = productSnap.data.data();
 
           return Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
             child: Flex(
               direction: Axis.horizontal,
               children: [
@@ -54,7 +56,10 @@ class ProductList extends StatelessWidget {
                               ),
                             );
                           },
-                          child: ProductOverview(product: _productMap),
+                          child: ProductOverview(
+                              product: _productMap,
+                              isCartView: _isCartView,
+                              productSize: document.data()['size']),
                         ),
                       ),
                       RemoveItem(

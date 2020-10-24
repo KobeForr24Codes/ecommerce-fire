@@ -3,11 +3,16 @@ import 'package:flutter/material.dart';
 
 class ProductOverview extends StatelessWidget {
   final Map<dynamic, dynamic> product;
+  final bool isCartView;
+  final String productSize;
 
-  const ProductOverview({Key key, this.product}) : super(key: key);
+  const ProductOverview({Key key, this.product, this.isCartView, this.productSize})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    bool _isCartView = isCartView ?? false;
+
     return Row(
       children: [
         Container(
@@ -34,14 +39,38 @@ class ProductOverview extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: Constants.boldHeading.copyWith(fontSize: 16.0),
                 ),
-                Text(
-                  "\$${product['price']}",
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    color: Theme.of(context).accentColor,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+                _isCartView
+                    ? Row(
+                        children: [
+                          Text(
+                            "\$${product['price']}",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              color: Theme.of(context).accentColor,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Text(
+                              "Size - $productSize" ?? " ",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Theme.of(context).accentColor,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    : Text(
+                        "\$${product['price']}",
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Theme.of(context).accentColor,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      )
               ],
             ),
           ),

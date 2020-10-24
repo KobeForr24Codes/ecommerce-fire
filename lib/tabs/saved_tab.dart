@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce_fire/constants.dart';
 import 'package:ecommerce_fire/services/products.dart';
 import 'package:ecommerce_fire/services/user.dart';
 import 'package:ecommerce_fire/widgets/custom_action_bar.dart';
@@ -39,18 +40,28 @@ class _SavedTabState extends State<SavedTab> {
                 }
 
                 if (snapshot.connectionState == ConnectionState.active) {
-                  return ListView(
-                    padding: EdgeInsets.only(
-                      top: 100.0,
-                      bottom: 24.0,
-                    ),
-                    children: snapshot.data.docs.map((document) {
-                      return ProductList(
-                        document: document,
-                        productService: _productService,
-                      );
-                    }).toList(),
-                  );
+                  if (snapshot.data.docs.isEmpty)
+                    return Center(
+                      child: Container(
+                        child: Text(
+                          "No Products",
+                          style: Constants.regularDarkText,
+                        ),
+                      ),
+                    );
+                  else
+                    return ListView(
+                      padding: EdgeInsets.only(
+                        top: 100.0,
+                        bottom: 24.0,
+                      ),
+                      children: snapshot.data.docs.map((document) {
+                        return ProductList(
+                          document: document,
+                          productService: _productService,
+                        );
+                      }).toList(),
+                    );
                 }
 
                 return Container(
