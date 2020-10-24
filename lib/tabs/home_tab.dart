@@ -56,7 +56,7 @@ class _HomeTabState extends State<HomeTab> {
             },
           ),
           CustomActionBar(
-            title: "Home",
+            title: "FireCommerce",
             hasTitle: true,
             hasBackArrow: false,
           )

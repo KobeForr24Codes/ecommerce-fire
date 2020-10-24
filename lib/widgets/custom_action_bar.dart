@@ -43,13 +43,16 @@ class _CustomActionBarState extends State<CustomActionBar> {
 
     return Container(
       decoration: BoxDecoration(
-          gradient: _hasBackground
-              ? LinearGradient(colors: [
-                  Colors.white,
-                  Colors.white.withOpacity(0),
-                ], begin: Alignment(0, 0), end: Alignment(0, 1))
-              : null),
-      padding: EdgeInsets.fromLTRB(24.0, 56.0, 24.0, 24.0),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+                color: Colors.black.withOpacity(0.15),
+                spreadRadius: 1.0,
+                blurRadius: 10.0,
+              )
+        ]
+      ),
+      padding: EdgeInsets.fromLTRB(24.0, 38.0, 24.0, 12.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -74,7 +77,7 @@ class _CustomActionBarState extends State<CustomActionBar> {
             ),
           if (_hasTitle)
             Text(
-              widget.title ?? "Home",
+              widget.title ?? "FireCommerce",
               style: Constants.boldHeading,
             ),
           if (_hasCartBtn)

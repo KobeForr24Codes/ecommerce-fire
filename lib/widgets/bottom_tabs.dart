@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -57,11 +56,12 @@ class _BottomTabsState extends State<BottomTabs> {
               widget.tabPressed(2);
             },
           ),
+          // MenuDrawer()
           BottomTabBtn(
-            imagePath: FeatherIcons.logOut,
+            imagePath: FeatherIcons.menu,
             selected: _selectedTab == 3 ? true : false,
             onPressed: () {
-              FirebaseAuth.instance.signOut();
+              Scaffold.of(context).openDrawer();
             },
           ),
         ],

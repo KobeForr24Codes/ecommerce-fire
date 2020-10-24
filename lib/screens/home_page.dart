@@ -3,6 +3,7 @@ import 'package:ecommerce_fire/tabs/home_tab.dart';
 import 'package:ecommerce_fire/tabs/saved_tab.dart';
 import 'package:ecommerce_fire/tabs/search_tab.dart';
 import 'package:ecommerce_fire/widgets/bottom_tabs.dart';
+import 'package:ecommerce_fire/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -32,6 +33,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
     return Scaffold(
+      drawer: MenuDrawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
