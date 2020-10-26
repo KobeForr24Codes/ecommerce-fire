@@ -1,8 +1,6 @@
-import 'package:ecommerce_fire/widgets/bottom_tabs.dart';
 import 'package:ecommerce_fire/widgets/costum_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 class MenuDrawer extends StatelessWidget {
   @override
@@ -60,11 +58,11 @@ class MenuDrawer extends StatelessWidget {
               child: CustomBtn(
                 text: "Logout",
                 onPressed: () async {
-                  FirebaseAuth.instance.signOut();
-                  // await FirebaseAuth.instance.signOut()
-                  //   .then((value) {
-                  //     Navigator.pop(context);
-                  //   });
+                  _showMyDialog();
+                  await FirebaseAuth.instance.signOut()
+                    .then((value) {
+                      Navigator.pop(context);
+                    });
 
                 },
               ),

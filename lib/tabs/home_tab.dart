@@ -31,11 +31,8 @@ class _HomeTabState extends State<HomeTab> {
               // Collection Data ready to display
               if (snapshot.connectionState == ConnectionState.done) {
                 // Display the data inside a list view
-                return ListView(
-                  padding: EdgeInsets.only(
-                    top: 100.0,
-                    bottom: 24.0,
-                  ),
+                return GridView.count(
+                  crossAxisCount: 1,
                   children: snapshot.data.docs.map((document) {
                     return ProductCard(
                       title: document.data()['name'],
